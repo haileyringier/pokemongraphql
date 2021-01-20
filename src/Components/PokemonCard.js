@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-export default function PokemonCard() {
+export default function PokemonCard(props) {
     return (
         <card>
             <h3>Pokemon Card</h3>

@@ -1,15 +1,19 @@
 import './App.css';
 import Home from './Components/Home';
-import PokemonCard from './Components/PokemonCard';
-import PokemonSection from './Components/PokemonSection';
+import { Switch, Route } from 'react-router-dom';
+import { ApolloProvider } from '@apollo/client';
 
-export default function App() {
+
+export default function App(props) {
   return (
-    <div className="App">
-      <Home />
-      <PokemonSection />
-      <PokemonCard />
+    <ApolloProvider client={props.client}>
+      <div className="App">
+      <Switch>
+        <Route exact path="/" component={Home} />
+
+      </Switch>
     </div>
+    </ApolloProvider>
   );
 }
 
