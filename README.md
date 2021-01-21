@@ -1,9 +1,9 @@
 # PokeApi
 
-Using the GraphQL PokeApi, this app renders a list of all the pokemon included in the api and features indiviual pokemon details pages. 
+Using the GraphQL PokeApi, this app renders a list of all the pokemon included in the api and features a pages for each pokemon with information about their types and moves.
 
 ## Setup
-This app was created with React, React Bootstrap and GraphQL Apollo Client. To check it out, fork and clone this repo, then run ```npm install``` and ```npm start``` to open the app.
+This app was created with React, React Bootstrap, React Router, and GraphQL Apollo Client. To check it out, fork and clone this repo, then run ```npm install``` and ```npm start``` to open the app.
 
 ## Code Examples
 
