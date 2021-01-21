@@ -9,6 +9,7 @@ export default function App(props) {
   return (
     <ApolloProvider client={props.client}>
       <div className="App">
+      <h1>Pokemon GraphQL</h1>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/:name" component={PokemonDetails} />

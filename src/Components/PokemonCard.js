@@ -4,9 +4,8 @@ import {Link} from 'react-router-dom';
 
 export default function PokemonCard(props) {
     return (
-        <Card style={{ width: '12em' }} bg="light" border="light">
+        <Card className="Pokemon-card" style={{ width: '12em' }} bg="light" border="light">
             <Card.Img src={props.image} alt={props.name} />
-            <Link to="" />
             <Card.Body>
                 <Card.Title>{props.name}</Card.Title>
             </Card.Body>

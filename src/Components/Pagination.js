@@ -9,7 +9,7 @@ export default function Pagination({ pokemonPerPage, totalPokemon, paginate }) {
     }
 
     return (
-        <ul className="pagination">
+        <ul className="pagination text-center">
             {pageNumbers.map(number => (
                 <li key={number} className="page-item">
                     <a onClick={() => paginate(number)} className="page-link">{number}</a>

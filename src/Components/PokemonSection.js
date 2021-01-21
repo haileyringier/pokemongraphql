@@ -9,9 +9,8 @@ export default function PokemonSection(props) {
     })
 
     return (
-        <div className='container mt-5'>
-            <h2>Pokemon Section</h2>
+        <Row className="pokemon-row">
             {renderPokemon()}
-        </div>
+        </Row>
     )
 }

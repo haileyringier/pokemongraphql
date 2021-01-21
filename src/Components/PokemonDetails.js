@@ -1,6 +1,7 @@
 import React from 'react';
 import {useQuery, gql} from '@apollo/client';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { ListGroup } from 'react-bootstrap';
 
 const GET_POKEMON_DETAILS = gql`
     query pokemon($name: String!){
@@ -37,42 +38,42 @@ export default function PokemonDetails(props) {
         variables: gqlVariables
     })
 
-
-    if(loading){
-        return <p>Loading...</p> 
-    } else {console.log(data)}
-   console.log(data.pokemon.sprites.front_default)
+    if(loading) return <p>Loading..</p>
+    if (error) return <p>Error</p>
 
     const moves = data.pokemon.moves
     const types = data.pokemon.types
     const sprites = data.pokemon.sprites.front_default
     
     const showMoves = () => moves.map(move => {
-        return (<li>
+        return (<ListGroup.Item>
                     <p>{move.move.name}</p>
-                </li>)
+                </ListGroup.Item>)
     })
 
     const showTypes = () => types.map(type => {
-        return (<li>
+        return (<ListGroup.Item>
                     <p>{type.type.name}</p>
-                </li>)
+                </ListGroup.Item>)
     })
 
 
     return (
         <div>
+        <Link className="home-link" to="/">Back to all Pokemon</Link>
+        <div className="pokemon-details-card">
             <h2>{name}</h2>
             <h4>Sprites</h4>
                 <img src={sprites} />
-            <ul>
-                <h3>Moves</h3>
-                {showMoves()}
-            </ul>
-            <ul>
-                <h4>Types</h4>
+            <h4>Types</h4>
+            <ListGroup horizontal>
                 {showTypes()}
-            </ul>
+            </ListGroup>
+            <h3>Moves</h3>
+            <ListGroup variant="flush">
+                {showMoves()}
+            </ListGroup>
+        </div>
         </div>
     )
 }
