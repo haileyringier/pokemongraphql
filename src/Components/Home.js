@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PokemonSection from './PokemonSection';
 import {useQuery, gql} from '@apollo/client';
 import Pagination from './Pagination'
-import { Container, Row, Col } from 'react-bootstrap';
 
 const GET_POKEMONS = gql`
   query pokemons {
@@ -44,6 +43,7 @@ export default function Home() {
         <div className="home-section">
             <PokemonSection pokemon={currentPokemon}/>
             <Pagination pokemonPerPage={pokemonPerPage} totalPokemon={pokemon.length} paginate={changePage} />
+            <p>Submitted by <a href="https://www.linkedin.com/in/hailey-ringier/">Hailey Ringier</a></p>
         </div>
     )
 }

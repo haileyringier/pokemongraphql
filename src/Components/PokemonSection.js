@@ -1,6 +1,6 @@
 import React from 'react';
 import PokemonCard from './PokemonCard';
-import { CardColumns, Container, Row, Col } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 
 export default function PokemonSection(props) {
 

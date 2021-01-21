@@ -9,7 +9,7 @@ export default function App(props) {
   return (
     <ApolloProvider client={props.client}>
       <div className="App">
-      <h1>Pokemon GraphQL</h1>
+      <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"></img>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/:name" component={PokemonDetails} />

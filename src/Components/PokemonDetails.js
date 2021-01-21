@@ -2,6 +2,7 @@ import React from 'react';
 import {useQuery, gql} from '@apollo/client';
 import { useParams, Link } from 'react-router-dom';
 import { ListGroup } from 'react-bootstrap';
+import { Card } from '@material-ui/core';
 
 const GET_POKEMON_DETAILS = gql`
     query pokemon($name: String!){
@@ -25,8 +26,7 @@ const GET_POKEMON_DETAILS = gql`
     }
 `
 
-
-export default function PokemonDetails(props) {
+export default function PokemonDetails() {
 
     const { name } = useParams();
 
@@ -46,34 +46,28 @@ export default function PokemonDetails(props) {
     const sprites = data.pokemon.sprites.front_default
     
     const showMoves = () => moves.map(move => {
-        return (<ListGroup.Item>
-                    <p>{move.move.name}</p>
-                </ListGroup.Item>)
+        return <p>{move.move.name}</p>
     })
 
     const showTypes = () => types.map(type => {
-        return (<ListGroup.Item>
-                    <p>{type.type.name}</p>
-                </ListGroup.Item>)
+        return <p>{type.type.name}</p>
     })
-
 
     return (
         <div>
-        <Link className="home-link" to="/">Back to all Pokemon</Link>
-        <div className="pokemon-details-card">
-            <h2>{name}</h2>
-            <h4>Sprites</h4>
+        <Link className="home-link" to="/">All Pokemon</Link>
+        <Card className="pokemon-details-card">
+            <h1>{name.toUpperCase()}</h1>
                 <img src={sprites} />
-            <h4>Types</h4>
-            <ListGroup horizontal>
+            <h3>Types</h3>
+            <ListGroup variant="flush">
                 {showTypes()}
             </ListGroup>
             <h3>Moves</h3>
             <ListGroup variant="flush">
                 {showMoves()}
             </ListGroup>
-        </div>
+        </Card>
         </div>
     )
 }
